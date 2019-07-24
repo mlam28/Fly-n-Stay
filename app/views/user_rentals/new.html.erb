@@ -1,0 +1,17 @@
+
+<%= form_for @user_rental do |f|%>
+<%=f.hidden_field :rental_id, value: @rental.id%>
+<%= f.label "Start Date yyyy/mm/dd"%>
+<%=f.text_field :start_date%>
+<%=f.label "End Date yyyy/mm/dd"%>
+<%=f.text_field :end_date%>
+<%= f.collection_select(:user_id, User.all, :id, :name, {prompt: "Choose a user"}) %>
+<%=f.fields_for :user, @user_rental.build_user do |user_field|%>
+<%=user_field.label  "Name" %>
+<%=user_field.text_field :name%>
+<%=user_field.label "Phone"%>
+<%=user_field.text_field :phone%>
+<%end%>
+
+<%=f.submit value="create User Rental"%>
+<%end%>

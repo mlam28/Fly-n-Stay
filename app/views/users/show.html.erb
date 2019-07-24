@@ -1,0 +1,10 @@
+<h1>Welcome <%=@user.name%></h1>
+
+
+
+
+
+Upcoming Rentals: <%@user.user_rentals.each do |user_rental|%>
+                    <%=link_to user_rental.rental.name, rental_path(user_rental.rental)%>
+                    <%end%>
+

@@ -4,3 +4,5 @@
 <h2>$<%=@rental.price%>/night</h2>
 <p> <%=@rental.description%></p>
 
+
+<%= button_to "Make A New Reservation", new_user_rental_path, method: :get, params: {id: @rental.id}%>
